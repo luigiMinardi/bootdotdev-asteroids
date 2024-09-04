@@ -44,7 +44,7 @@ def main():
 
         asteroid: CircleShape
         for asteroid in asteroids:
-            if asteroid.has_colided(player):
+            if asteroid.has_collided_with(player):
                 print('Game Over!')
                 return
 
