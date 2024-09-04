@@ -4,6 +4,7 @@
 import pygame
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
+from circleshape import CircleShape
 from constants import *
 from player import Player
 
@@ -40,6 +41,12 @@ def main():
 
         for to_update in updatable:
             to_update.update(dt)
+
+        asteroid: CircleShape
+        for asteroid in asteroids:
+            if asteroid.has_colided(player):
+                print('Game Over!')
+                return
 
         pygame.display.flip()
         dt = clock.tick(60) / 1000
