@@ -45,7 +45,7 @@ def main():
         for to_update in updatable:
             to_update.update(dt)
 
-        asteroid: CircleShape
+        asteroid: Asteroid
         for asteroid in asteroids:
             if asteroid.has_collided_with(player):
                 print('Game Over!')
@@ -55,7 +55,7 @@ def main():
             for shot in shots:
                 if asteroid.has_collided_with(shot):
                     shot.kill()
-                    asteroid.kill()
+                    asteroid.split()
 
         pygame.display.flip()
         dt = clock.tick(60) / 1000
