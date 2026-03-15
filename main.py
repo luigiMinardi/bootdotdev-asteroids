@@ -4,12 +4,15 @@
 import pygame
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
-from circleshape import CircleShape
-from constants import *
+from constants import SCREEN_HEIGHT, SCREEN_WIDTH
 from player import Player
 from shot import Shot
 
+
 def main():
+    print("Starting Asteroids")
+    print(f"Screen width: {SCREEN_WIDTH}")
+    print(f"Screen height: {SCREEN_HEIGHT}")
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
@@ -28,9 +31,9 @@ def main():
 
     x = SCREEN_WIDTH / 2
     y = SCREEN_HEIGHT / 2
-    player = Player(x,y)
+    player = Player(x, y)
 
-    asteroid_field = AsteroidField()
+    AsteroidField()
 
     while True:
         for event in pygame.event.get():
@@ -59,6 +62,7 @@ def main():
 
         pygame.display.flip()
         dt = clock.tick(60) / 1000
+
 
 if __name__ == "__main__":
     main()
